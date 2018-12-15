@@ -1,0 +1,7 @@
+<apex:page controller="SchemaProgramController" >
+    <apex:form >
+        <apex:selectList multiselect="false" size="1">
+            <apex:selectOptions value="{!options}" />
+        </apex:selectList>
+    </apex:form>
+</apex:page>

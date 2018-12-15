@@ -1,0 +1,17 @@
+<apex:page controller="CustomPicklistController" >
+   <apex:form id="frm1" >
+       <apex:pageBlock >
+          
+               <apex:outputLabel >Select Color:</apex:outputLabel>
+               <apex:selectList value="{!SelectedColor}" multiselect="false" size="1" >
+                   <apex:selectOptions value="{!listColor}" />
+                   <apex:actionSupport event="onchange" reRender="ajfe"  />
+               </apex:selectList>
+              
+               <apex:pageBlockSection id="ajfe" >
+               {!SelectedColor}
+           </apex:pageBlockSection>
+              
+       </apex:pageBlock>
+    </apex:form>
+</apex:page>

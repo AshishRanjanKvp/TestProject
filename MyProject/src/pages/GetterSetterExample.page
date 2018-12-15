@@ -1,0 +1,13 @@
+<apex:page controller="GetterSetterExampleController" >
+    <apex:form >
+        <apex:outputLabel value="Enter Your Name:" />
+        <apex:inputText value="{!userInput}" >
+            <apex:actionSupport event="onchange" reRender="disId" />
+        </apex:inputText>
+        
+        <apex:outputPanel id="disId" >
+            <apex:outputLabel value="you have entered :"  />
+            <apex:outputText value="{!userInput}" />
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

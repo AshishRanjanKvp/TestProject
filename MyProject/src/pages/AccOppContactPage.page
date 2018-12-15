@@ -1,0 +1,22 @@
+<apex:page controller="AccOppContactController" tabStyle="Account" >
+    <apex:form >
+        <apex:pageBlock title="Account with related Opportunity and Contacts" >
+          <apex:pageBlockSection columns="3" >
+              <apex:pageBlockTable value="{!account}" var="acc" >
+                  <apex:column value="{!acc.name}" />
+              </apex:pageBlockTable>
+              
+              <apex:pageBlockTable value="{!account.contacts}" var="con" >
+                  <apex:column value="{!con.firstname}" />
+                  <apex:column value="{!con.lastname}" />
+              </apex:pageBlockTable>
+              
+               <apex:pageBlockTable value="{!account.opportunities}" var="opp" >
+                  <apex:column value="{!opp.name}" />
+                  <apex:column value="{!opp.amount}" />
+              </apex:pageBlockTable>
+              
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

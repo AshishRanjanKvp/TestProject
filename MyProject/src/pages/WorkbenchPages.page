@@ -1,0 +1,27 @@
+<apex:page controller="WorkbenchController" tabStyle="Account" >
+    <apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockSection title="Choose the object, fields to build a SOQL query below:" collapsible="false">
+            <apex:selectList value="{!objectVal}" label="Object:" multiselect="false" size="1" >
+                <apex:selectOptions value="{!options}" />
+                <apex:actionSupport event="onchange" reRender="fld"  />
+            </apex:selectList>
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection id="fld" title="Select multiple Field: " collapsible="false">
+            <apex:selectList multiselect="true" value="{!objectFields}" size="10" >
+               
+            </apex:selectList>
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection title="Enter or modify a SOQL query below:" collapsible="false">
+            <apex:inputTextarea rows="7" cols="80" /><br/>
+            <apex:commandButton value="Query" />
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection title="Query Rsult" collapsible="false">
+            
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    </apex:form>    
+</apex:page>

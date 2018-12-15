@@ -1,0 +1,26 @@
+<apex:page standardController="Account" tabStyle="OtherInfo__c" >
+    <apex:form >
+        <apex:pageMessages />
+        <apex:pageBlock rendered="{!NOT($ObjectType.Account.accessible)}" >
+            <p>
+                Sorry, but you cannot see the data because you do not have access to the Account object.
+            </p>
+        </apex:pageBlock>
+        <apex:pageBlock title="My content" mode="edit" rendered="{! $ObjectType.Account.accessible}" >
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" value="Save" />
+                <apex:commandButton action="{!quicksave}" value="Quicksave" />
+                <apex:commandButton action="{!edit}" value="Edit" />
+                <apex:commandButton action="{!delete}" value="Delete" />
+                <apex:commandButton action="{!cancel}" value="Cancel" />
+                <apex:commandButton action="{!list}" value="List" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="My content Section" columns="2" >
+                <apex:inputField value="{!account.name}" />
+                <apex:inputField value="{!account.site}" />
+                <apex:inputField value="{!account.type}" />
+                <apex:inputField value="{!account.accountNumber}" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

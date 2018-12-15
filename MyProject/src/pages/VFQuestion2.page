@@ -1,0 +1,20 @@
+<apex:page controller="CalculatorDemoVf"  docType="Html-5.0">
+    
+    <apex:form id="frm">
+        <apex:pageBlock title="Calculator Demo" >
+            <apex:pageBlockSection >
+            <apex:input value="{!value.num1}" label="First Number" />
+            <apex:input value="{!value.num2}" label="Second Number" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection >
+                <apex:outputField >{!value.sumRes}</apex:outputField>
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!clear}" value="Clear" />
+                <apex:commandButton action="{!calc}" value="Calculate" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>

@@ -1,0 +1,45 @@
+<apex:page controller="AccSelTablePageController" tabStyle="Account" docType="html-5.0" >
+    
+    <script type="text/javascript">
+    function selectAllCheckboxes(obj,receivedInputID){
+        var inputCheckBox = document.getElementsByTagName("input");                  
+            for(var i=0; i<inputCheckBox.length; i++){          
+                if(inputCheckBox[i].id.indexOf(receivedInputID)!=-1){                                     
+                    inputCheckBox[i].checked = obj.checked;
+                }
+            }
+    }
+    </script>
+    
+    <apex:form id="table1" >
+        <apex:pageBlock >
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Show Selected" action="{!processSelected}" />
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection title="Account with checkbox options for selection" collapsible="false">
+                <apex:pageBlockTable value="{!wrapAccount}" var="wrapacc" id="table1" title="All Accounts" >
+                    <apex:column >
+                        <apex:facet name="header" >
+                            <apex:inputCheckbox onclick="selectAllCheckboxes(this,'inputId')"  />
+                        </apex:facet>
+                        <apex:inputCheckbox value="{!wrapacc.selected}" id="inputId" />
+                    </apex:column>
+                    <apex:column value="{!wrapacc.acc.name}" />
+                    <apex:column value="{!wrapacc.acc.phone}" />
+                    <apex:column >
+                        <apex:commandButton value="Delete" action="{!deleteAccount}" reRender="table1" />
+                        <apex:param name="wrapaccaccid" value="{!wrapacc.acc.id}" assignTo="{!todelAcc}"  />
+                    </apex:column>
+                </apex:pageBlockTable>
+                
+                <apex:pageBlockTable value="{!selectedAccount}" var="sacc" id="table2" title="Selected Accounts">
+                    <apex:column value="{!sacc.name}" />
+                     <apex:column value="{!sacc.phone}" />
+                </apex:pageBlockTable>
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,18 @@
+<apex:page controller="WrapperOppCon" >
+  <apex:form >
+    <apex:pageBlock >
+     <apex:pageBlockSection >
+            <apex:selectList value="{!SelectedValue}" size="1">
+              <apex:selectOptions value="{!Accs}"/>
+               <apex:actionSupport event="onchange" action="{!refresh}" reRender="OppTable, CtcTable"/>
+            </apex:selectList>
+            <apex:pageBlockTable value="{!Opplist}" id="OppTable" var="o">
+            <apex:column value="{!o.opp.Name}"/>
+            </apex:pageBlockTable>
+            <apex:pageBlockTable value="{!ctclist}" id="CtcTable" var="con">
+            <apex:column value="{!con.c.FirstName}"/>
+            </apex:pageBlockTable>
+     </apex:pageBlockSection>
+    </apex:pageBlock>
+   </apex:form>
+</apex:page>

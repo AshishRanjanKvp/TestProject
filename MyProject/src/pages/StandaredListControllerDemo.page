@@ -1,0 +1,27 @@
+<apex:page standardController="Account" recordSetVar="accountsVar"  sidebar="false" tabStyle="account">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:selectList value="{!filterid}" size="1" >
+                <apex:selectOptions value="{!listviewoptions}" />
+            </apex:selectList>
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" value="Save" />
+                <apex:commandButton action="{!quicksave}" value="Qsave" />
+                <apex:commandButton action="{!cancel}" value="Cancel" />
+                <apex:commandButton action="{!first}" value="First" />
+                <apex:commandButton action="{!last}" value="Last" />
+                <apex:commandButton action="{!next}" value="Next" />
+                <apex:commandButton action="{!previous}" value="Previous" />
+                <apex:commandButton action="{!list}" value="List" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!accountsVar}"  var="acc">
+            <apex:column value="{!acc.name}" />
+            <apex:column value="{!acc.site}" />
+            <apex:column value="{!acc.accountNumber}" />
+            <apex:column value="{!acc.annualRevenue}" />
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>
